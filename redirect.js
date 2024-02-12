@@ -6,5 +6,6 @@ function redirect() {
     const queryString = Array.from(urlParams.entries())
         .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
         .join('&');
-    window.location.replace(`${appScheme}?${queryString}`);
+    const redirectUrl = `${appScheme}${queryString ? '?' + queryString : ''}`;
+    window.location.replace(redirectUrl);
 }
